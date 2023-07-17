@@ -1,7 +1,7 @@
 {
-  "name": "@splidejs/vue-splide",
+  "name": "vue-splide-fs",
   "version": "0.6.12",
-  "description": "The Splide component for Vue.",
+  "description": "The Splide component for Vue. With additional customizations by FreibergerSyntax.",
   "author": "Naotoshi Fujita",
   "license": "MIT",
   "main": "dist/js/vue-splide.cjs.js",
@@ -19,10 +19,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Splidejs/vue-splide.git"
+    "url": "https://github.com/fsyntax/vue-splide-fs.git"
   },
   "bugs": {
-    "url": "https://github.com/Splidejs/vue-splide/issues"
+    "url": "https://github.com/fsyntax/vue-splide-fs/issues"
   },
   "devDependencies": {
     "@types/jest": "^29.0.0",
