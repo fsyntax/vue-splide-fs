@@ -2687,8 +2687,20 @@ const _sfc_main$1 = defineComponent({
       }
     });
     onUnmounted(() => {
-      var _a;
-      (_a = splide.value) == null ? void 0 : _a.destroy();
+      if (splide.value) {
+        try {
+          const observer = new MutationObserver(() => {
+            var _a, _b;
+            if (!document.body.contains((_a = splide.value) == null ? void 0 : _a.root)) {
+              (_b = splide.value) == null ? void 0 : _b.destroy();
+              observer.disconnect();
+            }
+          });
+          observer.observe(document.body, { childList: true, subtree: true });
+        } catch (e) {
+          console.log(e);
+        }
+      }
     });
     watch(() => merge({}, props.options), (options) => {
       if (splide.value) {

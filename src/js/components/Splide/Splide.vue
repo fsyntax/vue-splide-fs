@@ -76,8 +76,20 @@ export default defineComponent( {
     } );
 
     onUnmounted( () => {
-      splide.value?.destroy();
-    } );
+      if (splide.value) {
+        try {
+          const observer = new MutationObserver(() => {
+            if (!document.body.contains(splide.value?.root as HTMLElement)) {
+              splide.value?.destroy();
+              observer.disconnect();
+            }
+          });
+          observer.observe(document.body, { childList: true, subtree: true });
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    });
 
     watch( () => merge( {}, props.options ), options => {
       if ( splide.value ) {
